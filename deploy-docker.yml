@@ -12,4 +12,4 @@
    - name: get creds of aks 
      shell: az aks get-credentials -g {{aksrg}} -n {{akscls}}
    - name: deploy to aks
-     shell: kubectl apply -f /home/azureusr/workspace/jenkinsakscicd/helloapp.yaml
+     shell: kubectl apply -f /home/azureusr/workspace/helloapp.yaml
