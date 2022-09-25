@@ -1,10 +1,10 @@
 - hosts: dev
   become: true
   tasks:
+   - name: remove rev data
+     shell:  rm -rf /home/azureusr/workspace
    - name: clone repo
-     shell: git clone https://github.com/devops4all77/jenkinsakscicd.git
-   - name: switch dir
-     shell: cd jenkinsakscicd
+     shell: git clone https://github.com/devops4all77/jenkinsakscicd.git /home/azureusr/workspace
    - name: login to azure 
      shell: az login --service-principal -u {{AZURECLIENTID}} -p {{AZURECLIENTSECRET}} -t {{AZURETENANTID}}
    - name: set sub
@@ -12,4 +12,4 @@
    - name: get creds of aks 
      shell: az aks get-credentials -g {{aksrg}} -n {{akscls}}
    - name: deploy to aks
-     shell: kubectl apply -f helloapp.yaml
+     shell: kubectl apply -f /home/azureusr/workspace/jenkinsakscicd/helloapp.yaml
