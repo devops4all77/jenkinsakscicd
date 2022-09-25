@@ -22,7 +22,7 @@ pipeline{
 				
                 sh "sudo docker build . -t ${acrname}/helloapp:latest"
                withCredentials([usernamePassword(credentialsId: 'spauth', passwordVariable: 'AZURE_CLIENT_SECRET', usernameVariable: 'AZURE_CLIENT_ID')]) {
-                    sh "sudo docker login ${acrname} -u ${acr_username}  -p ${AZURE_CLIENT_SECRET}"
+                    sh "echo "${AZURE_CLIENT_SECRET}" | sudo docker login ${acrname} -u ${acr_username} --password-stdin"
                 }
               
                 sh "sudo docker push ${acrname}/helloapp:latest "
