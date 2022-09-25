@@ -21,8 +21,8 @@ pipeline{
                 sh "mvn clean package"
 				
                 sh "sudo docker build . -t ${acrname}/helloapp:latest"
-               withCredentials([usernamePassword(credentialsId: 'spauth', passwordVariable: 'AZURE_CLIENT_SECRET', usernameVariable: 'AZURE_CLIENT_ID')]) {
-                    sh "sudo docker login ${acrname} -u ${acr_username} -p ${AZURE_CLIENT_SECRET}"
+               withCredentials([usernamePassword(credentialsId: 'acrauth', passwordVariable: 'acrpwd', usernameVariable: 'acruser')]) {
+                    sh "sudo docker login ${acrname} -u ${acruser} -p ${acrpwd}"
                 }
               
                 sh "sudo docker push ${acrname}/helloapp:latest "
