@@ -4,10 +4,10 @@ pipeline{
       DOCKER_TAG = getVersion()
 	  aks_rg = sprinrg
 	  aks_cls = springaks
-	  acrname = acrjen1122443.azurecr.io
+	  acrname = "acrjen1122443.azurecr.io"
 	  acr_username = acrjen1122443
-	  AZURE_TENANT_ID= 0c508b0d-c4b2-4a38-93c7-5947fb5a5656
-	  AZURE_SUBSCRIPTION_ID=e44c9379-2fc4-4ec0-8945-b7fd3ff798bd
+	  AZURE_TENANT_ID = "0c508b0d-c4b2-4a38-93c7-5947fb5a5656"
+	  AZURE_SUBSCRIPTION_ID = "e44c9379-2fc4-4ec0-8945-b7fd3ff798bd"
     }
     stages{
         stage('init'){
