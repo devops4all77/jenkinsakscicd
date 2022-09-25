@@ -4,7 +4,7 @@
    - name: clone repo
      shell: git clone https://github.com/devops4all77/jenkinsakscicd.git && cd jenkinsakscicd
    - name: login to azure 
-     shell: az login --service-principal -u {{AZURECLIENTID}}-p {{AZURECLIENTSECRET}} -t {{AZURETENANTID}}
+     shell: az login --service-principal -u {{AZURECLIENTID}} -p {{AZURECLIENTSECRET}} -t {{AZURETENANTID}}
    - name: set sub
      shell: az account set -s {{AZURESUBSCRIPTIONID}}
    - name: get creds of aks 
