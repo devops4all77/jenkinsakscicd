@@ -4,10 +4,10 @@
    - name: clone repo
      shell: git clone https://github.com/devops4all77/jenkinsakscicd.git && cd jenkinsakscicd
    - name: login to azure 
-     shell: az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID
+     shell: az login --service-principal -u $AZURECLIENTID -p $AZURECLIENTSECRET -t $AZURETENANTID
    - name: set sub
-     shell: az account set -s $AZURE_SUBSCRIPTION_ID
+     shell: az account set -s $AZURESUBSCRIPTIONID
    - name: get creds of aks 
-     shell: az aks get-credentials -g aks_rg -n aks_cls 
+     shell: az aks get-credentials -g aksrg -n akscls 
    - name: deploy to aks
      shell: kubectl apply -f helloapp.yaml
