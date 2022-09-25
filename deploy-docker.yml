@@ -2,7 +2,7 @@
   become: true
   tasks:
    - name: clone repo
-     shell: git clone https://github.com/devops4all77/jenkinsansibledemo1.git && cd jenkinsansibledemo1
+     shell: git clone https://github.com/devops4all77/jenkinsakscicd.git && cd jenkinsakscicd
    - name: login to azure 
      shell: az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID
    - name: set sub
