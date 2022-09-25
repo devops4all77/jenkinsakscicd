@@ -11,8 +11,10 @@
      shell: az account set -s {{AZURESUBSCRIPTIONID}}
    - name: get creds of aks 
      shell: az aks get-credentials -g {{aksrg}} -n {{akscls}}
-   - name: deploy to aks
+   - name: delete old version
      shell: kubectl delete svc helloappjenkinscicd-svc
+   - name: delete old version
      shell: kubectl delete deploy helloappjenkinscicd
+   - name: deploy to aks
      shell: kubectl apply -f /home/azureusr/workspace/helloapp.yaml
      
