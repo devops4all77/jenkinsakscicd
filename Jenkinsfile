@@ -32,7 +32,7 @@ pipeline{
         stage('Deploy'){
             steps{
 			withCredentials([usernamePassword(credentialsId: 'spauth', passwordVariable: 'AZURE_CLIENT_SECRET', usernameVariable: 'AZURE_CLIENT_ID')]) {
-              ansiblePlaybook credentialsId: '496c76de-ea13-4d0f-a945-fec687b54851', disableHostKeyChecking: true, extras: "-e DOCKER_TAG=${DOCKER_TAG} aks_rg=${aks_rg} aks_cls=${aks_cls} AZURE_CLIENT_ID=${AZURE_CLIENT_ID} AZURE_CLIENT_SECRET=${AZURE_CLIENT_SECRET} AZURE_TENANT_ID=${AZURE_TENANT_ID} AZURE_SUBSCRIPTION_ID=${AZURE_SUBSCRIPTION_ID}", installation: 'ansible', inventory: 'dev.inv', playbook: 'deploy-docker.yml'
+              ansiblePlaybook credentialsId: '496c76de-ea13-4d0f-a945-fec687b54851', disableHostKeyChecking: true, extras: "-e "DOCKER_TAG=${DOCKER_TAG} aks_rg=${aks_rg} aks_cls=${aks_cls} AZURE_CLIENT_ID=${AZURE_CLIENT_ID} AZURE_CLIENT_SECRET=${AZURE_CLIENT_SECRET} AZURE_TENANT_ID=${AZURE_TENANT_ID} AZURE_SUBSCRIPTION_ID=${AZURE_SUBSCRIPTION_ID}", installation: 'ansible', inventory: 'dev.inv', playbook: 'deploy-docker.yml'
 			  }
             }
         }
