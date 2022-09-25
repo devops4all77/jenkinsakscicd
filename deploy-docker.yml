@@ -12,4 +12,7 @@
    - name: get creds of aks 
      shell: az aks get-credentials -g {{aksrg}} -n {{akscls}}
    - name: deploy to aks
+     shell: kubectl delete svc helloappjenkinscicd-svc
+     shell: kubectl delete deploy helloappjenkinscicd
      shell: kubectl apply -f /home/azureusr/workspace/helloapp.yaml
+     
